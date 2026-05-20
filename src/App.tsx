@@ -17,7 +17,9 @@ import {
   Wine, 
   Check, 
   PhoneCall,
-  Search
+  Search,
+  Mail,
+  MessageSquare
 } from 'lucide-react';
 
 import { ActiveTab, Currency, CartItem, Dish, ReservationData } from './types';
@@ -424,24 +426,96 @@ export default function App() {
       </main>
 
       {/* Exquisite Footer */}
-      <footer className="bg-brand-deep border-t border-white/5 py-12 px-6">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <span className="font-serif text-lg font-bold text-brand-brass uppercase tracking-widest leading-none">
-              L'Élite Culinaire
-            </span>
-            <span className="text-[8px] uppercase tracking-widest text-[#8e9192] mt-1 pr-1 block font-mono">
-              EST. 2026 • TODOS OS DIREITOS RESERVADOS
-            </span>
+      <footer className="bg-brand-deep border-t border-white/5 pt-16 pb-8 px-6">
+        <div className="max-w-7xl mx-auto">
+          {/* Main Footer Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 pb-12 border-b border-white/5">
+            {/* Column 1: Brand details */}
+            <div className="flex flex-col space-y-4 text-center md:text-left">
+              <div className="flex flex-col">
+                <span className="font-serif text-xl font-bold text-brand-brass uppercase tracking-widest leading-none">
+                  L'Élite Culinaire
+                </span>
+                <span className="text-[9px] uppercase tracking-widest text-[#8e9192] mt-2 font-mono">
+                  Alta Gastronomia • Experiências Singulares
+                </span>
+              </div>
+              <p className="text-xs text-[#8e9192] leading-relaxed max-w-sm mx-auto md:mx-0">
+                Uma fusão sublime de arte gastronômica, sommelieria premiada e hospitalidade de classe mundial para paladares verdadeiramente exigentes.
+              </p>
+            </div>
+
+            {/* Column 2: Navigation Links */}
+            <div className="flex flex-col space-y-4 text-center md:text-left">
+              <span className="font-sans text-[11px] tracking-widest font-bold uppercase text-brand-brass">
+                Navegação
+              </span>
+              <div className="grid grid-cols-2 gap-y-3 gap-x-2 text-xs text-[#8e9192] max-w-xs mx-auto md:mx-0">
+                <button onClick={() => setCurrentTab('home')} className="hover:text-white transition-colors text-left flex items-center justify-center md:justify-start gap-1.5 cursor-pointer">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-brass/60"></span>
+                  Início
+                </button>
+                <button onClick={() => setCurrentTab('menu')} className="hover:text-white transition-colors text-left flex items-center justify-center md:justify-start gap-1.5 cursor-pointer">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-brass/60"></span>
+                  Menu
+                </button>
+                <button onClick={() => setCurrentTab('sommelier')} className="hover:text-white transition-colors text-left flex items-center justify-center md:justify-start gap-1.5 cursor-pointer">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-brass/60"></span>
+                  Sommelier
+                </button>
+                <button onClick={() => setCurrentTab('reservations')} className="hover:text-white transition-colors text-left flex items-center justify-center md:justify-start gap-1.5 cursor-pointer">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-brass/60"></span>
+                  Reservas
+                </button>
+              </div>
+            </div>
+
+            {/* Column 3: Contact details updated as requested */}
+            <div className="flex flex-col space-y-4 text-center md:text-left">
+              <span className="font-sans text-[11px] tracking-widest font-bold uppercase text-brand-brass">
+                Informações de Contato
+              </span>
+              <div className="flex flex-col space-y-3.5 text-xs text-[#8e9192] items-center md:items-start">
+                <div className="flex items-center md:items-start gap-2.5">
+                  <ChefHat className="w-4 h-4 text-brand-brass shrink-0" />
+                  <div className="text-left">
+                    <p className="text-white font-medium">Washington Brum Teixeira</p>
+                    <p className="text-[9px] uppercase tracking-wider text-brand-brass/60 font-mono">Desenvolvedor Principal</p>
+                  </div>
+                </div>
+                <a href="mailto:washi.webdev@gmail.com" className="hover:text-white flex items-center gap-2.5 transition-colors group">
+                  <Mail className="w-4 h-4 text-brand-brass group-hover:text-white transition-colors shrink-0" />
+                  <span>washi.webdev@gmail.com</span>
+                </a>
+                <a 
+                  href="https://wa.me/5551992686368" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-white flex items-center gap-2.5 transition-colors group"
+                >
+                  <MessageSquare className="w-4 h-4 text-brand-brass group-hover:text-white transition-colors shrink-0" />
+                  <span className="flex items-center gap-1 font-mono">
+                    +55 (51) 99268-6368
+                    <span className="inline-block transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-[10px] text-brand-brass/80">↗</span>
+                  </span>
+                </a>
+              </div>
+            </div>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-6 text-xs text-[#8e9192]">
-            <a onClick={() => setCurrentTab('menu')} className="hover:text-white cursor-pointer transition-colors">Politica de Privacidade</a>
-            <a onClick={() => setCurrentTab('reservations')} className="hover:text-white cursor-pointer transition-colors">Termos de Reserva</a>
-            <a href="mailto:contato@eliteculinaire.com" className="hover:text-white flex items-center gap-1 transition-colors">
-              <PhoneCall className="w-3.5 h-3.5" />
-              Imprensa
-            </a>
+          {/* Bottom Footer Section */}
+          <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            {/* Disclaimer text (discreta com menor opacidade) */}
+            <div className="max-w-2xl text-center md:text-left">
+              <p className="text-[10px] leading-relaxed text-[#8e9192]/40 font-sans">
+                Este é um projeto conceitual desenvolvido exclusivamente para fins de demonstração, testes técnicos e composição de portfólio de desenvolvimento web.
+              </p>
+            </div>
+
+            {/* Copyright Moderno */}
+            <div className="text-xs text-[#8e9192]/60 font-mono whitespace-nowrap text-center md:text-right">
+              © 2026 Washington Brum. Todos os direitos reservados.
+            </div>
           </div>
         </div>
       </footer>
