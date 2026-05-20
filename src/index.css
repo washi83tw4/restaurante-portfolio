@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Manrope:wght@200;300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand-charcoal: #0a0a0a;
+  --color-brand-deep: #050505;
+  --color-brand-gold: #d4af37; /* Sophisticated Gold */
+  --color-brand-brass: #d4af37; /* Sophisticated Gold */
+  --color-brand-wine: #690000; /* Deep red wine */
+  --color-brand-burgundy: #8B0000; /* Warm burgundy */
+  
+  --font-serif: "Libre Caslon Text", "Playfair Display", Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  
+  --animate-gold-shimmer: gold-shimmer 4s ease-in-out infinite;
+  
+  @keyframes gold-shimmer {
+    0%, 100% { filter: brightness(1); }
+    50% { filter: brightness(1.2) drop-shadow(0 0 3px rgba(212, 175, 55, 0.4)); }
+  }
+}
+
+/* Custom Base Configurations */
+body {
+  background-color: #0a0a0a;
+  color: #e2e2e2;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Custom Utilities for High-End Glassmorphism */
+.glass-panel {
+  background-color: #111111;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-gold {
+  background-color: #151515;
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  box-shadow: 0 10px 40px -10px rgba(212, 175, 55, 0.05);
+}
+
+/* Luxury Soft Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.2);
+  border-radius: 9999px;
+  border: 1px solid rgba(5, 5, 5, 0.9);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.5);
+}
+
+/* Custom animations and glow transitions */
+.transition-luxury {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Remove default inputs appearance */
+input, textarea, select {
+  outline: none;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "L'Élite Culinaire",
+  "description": "Uma experiência gastronômica digital sob medida para paladares exigentes. Alta culinária, vinhos finos, reservas exclusivas e carrinho de compras integrado.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
